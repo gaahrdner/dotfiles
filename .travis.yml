@@ -1,0 +1,10 @@
+---
+  notifications:
+    email: true
+  services:
+    - docker
+  script:
+    - make test
+  language: minimal
+  os:
+    - linux

@@ -1,0 +1,78 @@
+[alias]
+        # List all aliases
+        alias=!git config -l | grep ^alias | cut -c 7- | sort
+        
+        # View abbreviated SHA, description, and history graph of the latest 20 commits
+        ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+	# View the current working tree status using the short format
+	s = status -s
+
+        # Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+        # Pull in remote changes for the current repository and all its submodules
+	p = !"git pull; git submodule foreach git pull origin master"
+
+        # Clone a repository including all submodules
+	c = clone --recursive
+
+        # List contributors with number of commits
+	contributors = !git log --format=format:%an | sort | uniq -c | sort -r | head -n 20
+
+        # Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+
+        # Start over :(
+        fuck = reset HEAD --hard
+
+[apply]
+        # Detect whitespace errors when applying a patch
+        # https://git-scm.com/docs/git-apply#Documentation/git-apply.txt---whitespaceltactiongt
+        whitespace = fix
+
+[color]
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-colorui
+        ui = true
+
+[commit]
+        # A boolean to specify whether all commits should be GPG signed
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-commitgpgSign
+        gpgsign = true
+
+[core]
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreeditor
+        editor = vim
+
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreexcludesFile
+        excludesfile = ~/.gitignore
+
+        # A comma separated list of common whitespace problems to notice
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-corewhitespace
+        whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+[credential]
+        # Specify an external helper to be called when a username or password credential is needed
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-credentialhelper
+        helper = osxkeychain
+
+[help]
+	# Automatically correct and execute mistyped commands
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-helpautoCorrect
+	autoCorrect = 1
+
+[merge]
+	# Include summaries of merged commits in newly created merge commit messages
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-mergelog
+	log = true
+
+[include]
+        path = ~/.gitconfig-user
+
+[web]
+        # Specify a web browser that may be used by some commands
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-webbrowser
+        browser = google-chrome
+

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# OG path
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+# Add Homebrew `sbin`
+export PATH="/usr/local/sbin:${PATH}"

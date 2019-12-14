@@ -1,0 +1,12 @@
+.Trash-*
+.DS_Store
+
+.vim/backups
+.vim/bundle
+.vim/swap
+.vim/undo
+!.vim/backups/.keep
+!.vim/swap/.keep
+!.vim/undo/.keep
+
+.extra

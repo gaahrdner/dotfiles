@@ -90,16 +90,6 @@ plugins=()
 # shellcheck disable=SC1090
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-for file in ~/.{aliases,exports,extra,path}; do
-	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
-		# shellcheck source=/dev/null
-		source "$file"
-	fi
-done
-unset file
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

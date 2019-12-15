@@ -9,4 +9,6 @@
 !.vim/swap/.keep
 !.vim/undo/.keep
 
-.extra
+.gnupg/*
+!.gnupg/gpg.conf
+!.gnupg/dirmngr.conf

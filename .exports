@@ -19,5 +19,5 @@ export PAGER="most -s"
 
 # Export a TTY for gpg
 # https://github.com/pstadler/keybase-gpg-github/tree/ae9b49af71b64336644c7216f66c6ff2f1090d53#optional-setting-up-tty
-GPG_TTY=$(tty)
+GPG_TTY="$(tty)"
 export GPG_TTY

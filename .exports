@@ -4,20 +4,16 @@
 export EDITOR=/usr/local/bin/vim;
 export VISUAL=/usr/local/bin/vim;
 
-# US Engligh and UTF-8
+# US English and UTF-8
 export LANG="en_US.UTF-8";
 export LC_ALL="en_US.UTF-8";
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X";
 
-# Enable Docker Content Trust - https://success.docker.com/article/introduction-to-docker-content-trust
+# Enable Docker Content Trust
+# https://success.docker.com/article/introduction-to-docker-content-trust
 export DOCKER_CONTENT_TRUST=1
 
 # Use most as the pager
 export PAGER="most -s"
-
-# Export a TTY for gpg
-# https://github.com/pstadler/keybase-gpg-github/tree/ae9b49af71b64336644c7216f66c6ff2f1090d53#optional-setting-up-tty
-GPG_TTY="$(tty)"
-export GPG_TTY

@@ -5,3 +5,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Add Homebrew `sbin`
 export PATH="/usr/local/sbin:${PATH}"
+
+# Add GNU tools binary location
+export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+
+# Add GOPATH/bin
+export PATH="$(go env GOPATH)/bin:$PATH"

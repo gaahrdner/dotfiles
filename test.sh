@@ -5,7 +5,7 @@ set -o pipefail
 ERRORS=()
 
 # find all executables and run `shellcheck`
-for f in $(find . -type f -not -path '*.git*' | sort -u); do
+for f in $(find . -type f -not -path '*.git*' -not -path '*.vim/*' | sort -u); do
 	if file "$f" | grep --quiet shell; then
 		{
 			shellcheck "$f" && echo "[OK]: Successfully linted: $f"

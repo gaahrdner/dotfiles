@@ -46,6 +46,7 @@ try
 catch
 endtry
 
+set backspace=indent,eol,start
 set history=10000                 " size of the history buffer
 set pastetoggle=<F2>              " Set pastetoggle so we don't get auto indenting when pasting in a shit ton of text
 set autoread                      " reread the file if it was changed outside of vim

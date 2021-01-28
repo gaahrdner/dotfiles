@@ -1,37 +1,47 @@
 SHELL := bash
-.ONESHELL:
-.SHELLFLAGS := -eu -o pipefail -c
-.DELETE_ON_ERROR:
-MAKEFLAGS += --warn-undefined-variables
-MAKEFLAGS += --no-builtin-rules
-
-ifeq ($(origin .RECIPEPREFIX), undefined)
-  $(error This Make does not support .RECIPEPREFIX. Please use GNU Make 4.0 or later)
-endif
-.RECIPEPREFIX = >
 
 .PHONY: all
 all: dotfiles
 
 .PHONY: dotfiles
-dotfiles: ## Install the dotfiles
-	for file in $(shell find $(CURDIR) -maxdepth 1 -name ".*" -not -name ".gitignore" -not -name ".travis.yml" -not -name ".git"); do \
-		f=$$(basename $$file); \
-		ln -sfn $$file $(HOME)/$$f; \
-	done; \
-	gpg --list-keys || true;
+dotfiles: ## Install all the dotfiles
+		for file in $(shell find $(CURDIR) -name ".*" -not -name ".gitignore" -not -name ".git" -not -name ".config" -not -name ".github" -not -name ".*.swp" -not -name ".gnupg" -not -name ".travis.yml"); do\
+			f=$$(basename $$file); \
+			ln -sfn $$file $(HOME)/$$f; \
+		done; \
+		gpg --list-keys || true;
+		mkdir -p $(HOME)/.gnupg
+		for file in $(shell find $(CURDIR)/.gnupg); do \
+				f=$$(basename $$file); \
+				ln -sfn $$file $(HOME)/.gnupg/$$f; \
+		done; \
 
 .PHONY: test
-test: shellcheck ## Run tests on all the files in the repo
+test: shellcheck ## Run all the tests on the files in this repo
 
 .PHONY: shellcheck
-shellcheck:  ## Run `shellcheck` on all scripts
-	docker run --rm -i $(DOCKER_FLAGS) \
-		--name df-shellcheck \
-		-v $(CURDIR):/usr/src:ro \
-		--workdir /usr/src \
-		r.j3ss.co/shellcheck ./test.sh
+shellcheck: ## Run shellcheck tests against scripts
+		docker run --rm -i $(DOCKER_FLAGS) \
+			--name df-shellcheck \
+			-v $(CURDIR):/usr/src:ro \
+			--workdir /usr/src \
+			r.j3ss.co/shellcheck ./test.sh
 
 .PHONY: help
 help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+		@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+# .PHONY: test
+# test: shellcheck ## Run tests on all the files in the repo
+
+# .PHONY: shellcheck
+# shellcheck:  ## Run `shellcheck` on all scripts
+# 	docker run --rm -i $(DOCKER_FLAGS) \
+# 		--name df-shellcheck \
+# 		-v $(CURDIR):/usr/src:ro \
+# 		--workdir /usr/src \
+# 		r.j3ss.co/shellcheck ./test.sh
+
+# .PHONY: help
+# help:
+# 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

@@ -1,3 +1,23 @@
+# Search history with ctrl-p and ctrl-n
+"\C-p":history-search-backward
+"\C-n":history-search-forward
+
+# Display possible completions using different colors
+set colored-stats On
+
+# Ignore cases during auto completion
+set completion-ignore-case O
+
+# Maximum number of characters to be common prefix to display for completions
+set completion-prefix-display-length 3
+
+# Set every completion which is a symoblic link to a directory to have a slash appended
+set mark-symlinked-directories On
+
+# List completions immediately instead of ringing the bell
+set show-all-if-ambiguous On
+set show-all-if-unmodified On
+
 # Show extra file information when completing, like `ls -F` does
 set visible-stats on
 

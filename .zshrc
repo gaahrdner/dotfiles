@@ -1,8 +1,9 @@
+zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 case `uname` in
     Darwin)
-        export PATH="$(brew --prefix)/opt/make/libexec/gnubin:$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+        export PATH="/usr/local/opt/make/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     ;;
     Linux)
         export PATH=$HOME/bin:/usr/local/bin:$PATH

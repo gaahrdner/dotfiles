@@ -3,7 +3,7 @@ zmodload zsh/zprof
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 case `uname` in
     Darwin)
-        export PATH="/usr/local/opt/make/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+        export PATH="/usr/local/sbin:$PATH"
     ;;
     Linux)
         export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -45,7 +45,7 @@ ZSH_THEME="spaceship"
 # DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+DISABLE_LS_COLORS="false"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"

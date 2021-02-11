@@ -5,15 +5,19 @@ all: dotfiles
 
 .PHONY: dotfiles
 dotfiles: ## Install all the dotfiles
-		for file in $(shell find $(CURDIR) -name ".*" -name "Brewfile" -not -name ".gitignore" -not -name ".git" -not -name ".config" -not -name ".github" -not -name ".*.swp" -not -name ".gnupg" -not -name ".vim.backups" -not -name ".vim.bundle" -not -name ".vim.swap" -not -name ".vim.undo"); do\
+		for file in $(shell find $(CURDIR) ! -path "*.vim*" \( -name ".*" -o -name "Brewfile" \) -not -name ".gitignore" -not -name ".git" -not -name ".config" -not -name ".github" -not -name ".*.swp" -not -name ".gnupg"); do\
 			f=$$(basename $$file); \
 			ln -sfn $$file $(HOME)/$$f; \
 		done; \
 		gpg --list-keys || true;
-		mkdir -p $(HOME)/.gnupg
+		mkdir -p $(HOME)/{.vim/{backups,bundle,swap,undo},.gnupg}
 		for file in $(shell find $(CURDIR)/.gnupg); do \
-				f=$$(basename $$file); \
-				ln -sfn $$file $(HOME)/.gnupg/$$f; \
+			f=$$(basename $$file); \
+			ln -sfn $$file $(HOME)/.gnupg/$$f; \
+		done; \
+		for file in $(shell find $(CURDIR)/.vim ! -path "*.vim/backups*" ! -path "*.vim/bundle*" ! -path "*.vim/swap*" ! -path "*.vim/undo*" -not -name ".vim"); do \
+			f=$$(basename $$file); \
+			ln -sfn $$file $(HOME)/.vim/$$f; \
 		done; \
 
 .PHONY: test

@@ -1,6 +1,6 @@
 # dotfiles
 
-[![Build Status](https://img.shields.io/travis/com/gaahrdner/dotfiles?style=for-the-badge)](https://travis-ci.com/gaahrdner/dotfiles)
+![Build Status](https://github.com/gaahrdner/dotfiles/workflows/ci/badge.svg)
 
 ## Notes
 

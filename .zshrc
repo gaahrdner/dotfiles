@@ -1,14 +1,5 @@
-zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-case `uname` in
-    Darwin)
-        export PATH="/usr/local/sbin:$PATH"
-    ;;
-    Linux)
-        export PATH=$HOME/bin:/usr/local/bin:$PATH
-    ;;
-esac
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/gaahrdner/.oh-my-zsh"
@@ -45,7 +36,7 @@ ZSH_THEME="spaceship"
 # DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
-DISABLE_LS_COLORS="false"
+# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -79,7 +70,7 @@ DISABLE_LS_COLORS="false"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf aws brew docker docker-compose golang npm osx thefuck)
+plugins=(asdf brew docker emoji emoji-clock git github golang httpie iterm2 keychain kubectl man nmap osx python tmux)
 
 source $ZSH/oh-my-zsh.sh
 

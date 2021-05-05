@@ -6,7 +6,7 @@
 
 Heavily inspired by @jessfraz's [great work](https://github.com/jessfraz/dotfiles), but for...
 
-* OS X Catalina
+* OS X Big Sur
 * zsh
 
 > Good composers borrow, great composers steal.

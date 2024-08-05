@@ -73,6 +73,7 @@ in
   home.packages = with pkgs; ([
     # Common packages
     hello
+    just
   ] ++ lib.optionals isLinux [
     # Linux packages
   ]

@@ -7,13 +7,22 @@ in
 {
   home.packages = with pkgs; ([
     # Common packages
-    hello
+    bat # https://github.com/sharkdp/bat
+    bottom # https://github.com/ClementTsang/bottom
+    cargo # https://github.com/rust-lang/cargo
+    fzf
+    gitAndTools.hub
+    htop
     just
+    nerdfonts
+    tree
+    wget
   ] ++ lib.optionals isLinux [
     # Linux packages
-  ]
-
-  ++ lib.optionals isDarwin [
+    dbus 
+    usbutils
+  ] ++ lib.optionals isDarwin [
     # macOS packages
+    pinentry_mac
   ]);
 }

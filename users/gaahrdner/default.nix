@@ -7,8 +7,15 @@ let
 in
 {
   imports = [
-    ./vim.nix
+    ./direnv.nix
+    ./git.nix
+    ./gpg.nix
+    ./jq.nix
+    ./keychain.nix
     ./packages.nix
+    ./starship.nix
+    ./vim.nix
+    ./zsh.nix
   ];
 
   home.username = "gaahrdner";

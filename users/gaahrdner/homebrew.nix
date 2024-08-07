@@ -33,6 +33,7 @@ let
     "rar"
     "raycast"
     "rectangle"
+    "sanesidebuttons"
     "signal"
     "slack"
     "spotify"

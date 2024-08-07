@@ -8,6 +8,7 @@ in
 {
   imports = [
     ./direnv.nix
+    ./homebrew.nix
     ./git.nix
     ./gpg.nix
     ./jq.nix

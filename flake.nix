@@ -5,6 +5,16 @@
     url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
+  inputs.brew-nix = {
+    url = "github:BatteredBunny/brew-nix";
+    inputs.brew-api.follows = "brew-api";
+  };
+
+  inputs.brew-api = {
+    url = "github:BatteredBunny/brew-api";
+    flake = false;
+  };
+
   inputs.nix-darwin = {
     url = "github:LnL7/nix-darwin";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +25,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nix-darwin, nixpkgs, home-manager }: {
+  outputs = { self, nixpkgs, brew-nix, brew-api, nix-darwin, home-manager, ... }: {
     homeConfigurations = {
       "gaahrdner@maxbeep" = home-manager.lib.homeManagerConfiguration ({
         modules = [ (import ./home.nix) ];

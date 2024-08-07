@@ -15,6 +15,7 @@ in
     htop
     just
     nerdfonts
+    ripgrep
     tree
     wget
   ] ++ lib.optionals isLinux [

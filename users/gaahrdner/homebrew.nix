@@ -17,6 +17,8 @@ let
     "calibre"
     "discord"
     "docker"
+    "elgato-stream-deck"
+    "elgato-wave-link"
     "garmin-express"
     "ghidra"
     "godot"

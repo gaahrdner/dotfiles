@@ -6,6 +6,7 @@ let
   unsupported = builtins.abort "Unsupported platform";
 in
 {
+  nixpkgs.config.allowUnfree = true;
   imports = [
     ./direnv.nix
     ./homebrew.nix
@@ -16,6 +17,7 @@ in
     ./packages.nix
     ./starship.nix
     ./vim.nix
+    ./vscode.nix
     ./zsh.nix
   ];
 

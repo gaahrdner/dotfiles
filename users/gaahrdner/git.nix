@@ -63,7 +63,7 @@
       };
       push = {
         autoSetupRemote = true;
-      }
+      };
     };
   };
 }

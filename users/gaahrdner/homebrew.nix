@@ -8,7 +8,7 @@ let
   ];
 
   brews = [
-    "lima"
+    "exercism"
   ];
 
   casks = [
@@ -29,6 +29,7 @@ let
     "ledger-live"
     "mos"
     "obs"
+    "ollama"
     "openscad"
     "orcaslicer"
     "qbittorrent"
@@ -40,6 +41,7 @@ let
     "slack"
     "spotify"
     "steam"
+    "syncthing"
     "tailscale"
     "vlc"
     "zoom"

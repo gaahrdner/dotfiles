@@ -14,13 +14,18 @@ in
     gitAndTools.hub
     htop
     just
-    nerdfonts
+  ] ++ 
+  # Include all nerd fonts
+  (builtins.filter lib.attrsets.isDerivation (builtins.attrValues nerd-fonts)) ++
+  [
     ripgrep
     tree
     wget
+    uv
+    ruff
   ] ++ lib.optionals isLinux [
     # Linux packages
-    dbus 
+    dbus
     usbutils
   ] ++ lib.optionals isDarwin [
     # macOS packages

@@ -5,6 +5,7 @@ let
     "cloudflare/cloudflare"
     "homebrew/bundle"
     "homebrew/services"
+    "tursodatabase/tap"
   ];
 
   brews = [
@@ -24,15 +25,18 @@ let
     "godot"
     "google-chrome"
     "google-cloud-sdk"
+    "google-drive"
     "iterm2"
     "keybase"
     "ledger-live"
     "mos"
     "obs"
+    "obsidian"
     "ollama"
     "openscad"
     "orcaslicer"
     "qbittorrent"
+    "qflipper"
     "rar"
     "raycast"
     "rectangle"

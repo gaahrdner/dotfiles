@@ -7,15 +7,21 @@ in
 {
   home.packages = with pkgs; ([
     # Common packages
+    Aider
     bat # https://github.com/sharkdp/bat
     bottom # https://github.com/ClementTsang/bottom
     cargo # https://github.com/rust-lang/cargo
     code2prompt
+    exercism
     fzf
+    gh
     gitAndTools.hub
     htop
     mise
     just
+    rar
+    terraform
+    turso
   ] ++ 
   # Include all nerd fonts
   (builtins.filter lib.attrsets.isDerivation (builtins.attrValues nerd-fonts)) ++

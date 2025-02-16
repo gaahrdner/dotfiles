@@ -17,6 +17,7 @@ in
     gh
     gitAndTools.hub
     htop
+    hugo
     mise
     just
     rar

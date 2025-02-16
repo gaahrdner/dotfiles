@@ -6,6 +6,7 @@
     lfs.enable = true;
     userEmail = "github@philipgardner.com";
     userName = "Philip Gardner";
+    init.defaultBranch = "main"
     signing = {
       key = "A3A0431D96695C25";
       signByDefault = true;

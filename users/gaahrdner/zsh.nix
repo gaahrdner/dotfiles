@@ -14,6 +14,7 @@
       
       # Initialize Starship
       eval "$(starship init zsh)"
+      eval "$(mise activate zsh)"
     '';
 
     # Environment variables

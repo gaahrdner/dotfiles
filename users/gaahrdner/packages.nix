@@ -10,9 +10,11 @@ in
     bat # https://github.com/sharkdp/bat
     bottom # https://github.com/ClementTsang/bottom
     cargo # https://github.com/rust-lang/cargo
+    code2prompt
     fzf
     gitAndTools.hub
     htop
+    mise
     just
   ] ++ 
   # Include all nerd fonts

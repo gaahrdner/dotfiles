@@ -10,6 +10,8 @@ let
     "tursodatabase/tap"
   ];
 
+  brews = [];
+
   casks = [
     "1password"
     "android-platform-tools"

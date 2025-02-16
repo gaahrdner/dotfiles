@@ -7,7 +7,7 @@ in
 {
   home.packages = with pkgs; ([
     # Common packages
-    Aider
+    aider-chat
     bat # https://github.com/sharkdp/bat
     bottom # https://github.com/ClementTsang/bottom
     cargo # https://github.com/rust-lang/cargo
@@ -21,7 +21,7 @@ in
     just
     rar
     terraform
-    turso
+    turso-cli
   ] ++ 
   # Include all nerd fonts
   (builtins.filter lib.attrsets.isDerivation (builtins.attrValues nerd-fonts)) ++

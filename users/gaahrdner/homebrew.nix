@@ -5,15 +5,14 @@ let
     "cloudflare/cloudflare"
     "homebrew/bundle"
     "homebrew/services"
+    "libsql/sqld"
+    "threedotslabs/tap"
     "tursodatabase/tap"
-  ];
-
-  brews = [
-    "exercism"
   ];
 
   casks = [
     "1password"
+    "android-platform-tools"
     "balenaetcher"
     "calibre"
     "discord"
@@ -37,7 +36,6 @@ let
     "orcaslicer"
     "qbittorrent"
     "qflipper"
-    "rar"
     "raycast"
     "rectangle"
     "sanesidebuttons"

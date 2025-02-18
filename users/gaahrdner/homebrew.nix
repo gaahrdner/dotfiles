@@ -47,6 +47,7 @@ let
     "steam"
     "syncthing"
     "tailscale"
+    "temurin"
     "vlc"
     "zoom"
     "zotero"

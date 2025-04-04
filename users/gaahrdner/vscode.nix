@@ -3,7 +3,9 @@
 {
   programs.vscode = {
     enable = true;
-    enableExtensionUpdateCheck = true;
-    enableUpdateCheck = true;
+    profiles.default = {
+      enableExtensionUpdateCheck = true;
+      enableUpdateCheck = true;
+    };
   };
 }

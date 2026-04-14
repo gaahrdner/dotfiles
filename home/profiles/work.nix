@@ -12,6 +12,9 @@
   };
 
   home.packages = with pkgs; [
-    # work specific tools, add as needed
+    terraform
+    terragrunt
+    aws-sso-cli
+    awscli2
   ];
 }

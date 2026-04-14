@@ -47,6 +47,10 @@
 
       # granted assume alias (required for shell env export to work)
       alias assume="source ${pkgs.granted}/bin/assume"
+
+      # granted zsh completions
+      autoload -U compinit && compinit
+      source <(granted completion zsh)
     '';
   };
 

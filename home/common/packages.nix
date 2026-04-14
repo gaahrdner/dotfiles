@@ -11,6 +11,7 @@
     jq
     wget
     curl
+    tree
 
     # new hotness
     yazi

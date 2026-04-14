@@ -1,38 +1,39 @@
 {
   description = "My system configuration";
 
-  inputs.nixpkgs= {
-    url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  inputs.brew-nix = {
-    url = "github:BatteredBunny/brew-nix";
-    inputs.brew-api.follows = "brew-api";
-  };
-
-  inputs.brew-api = {
-    url = "github:BatteredBunny/brew-api";
-    flake = false;
-  };
-
-  inputs.nix-darwin = {
-    url = "github:LnL7/nix-darwin";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-  
-  inputs.home-manager = {
-    url = "github:nix-community/home-manager";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
-  outputs = { self, nixpkgs, brew-nix, brew-api, nix-darwin, home-manager, ... }: {
-    homeConfigurations = {
-      "gaahrdner@maxbeep" = home-manager.lib.homeManagerConfiguration ({
-        modules = [ (import ./home.nix) ];
-        pkgs = import nixpkgs {
-          system = "aarch64-darwin";
-        };
-      });
+  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
+  let
+    mkDarwinSystem = { profile, system ? "aarch64-darwin" }:
+      nix-darwin.lib.darwinSystem {
+        inherit system;
+        modules = [
+          ./darwin/common.nix
+          ./darwin/${profile}.nix
+          home-manager.darwinModules.home-manager
+          {
+            nixpkgs.config.allowUnfree = true;
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.pgardner = import ./home/profiles/${profile}.nix;
+          }
+        ];
+      };
+  in {
+    darwinConfigurations = {
+      "swordfish" = mkDarwinSystem { profile = "work"; };
+      "maxbeep"   = mkDarwinSystem { profile = "personal"; };
     };
   };
 }

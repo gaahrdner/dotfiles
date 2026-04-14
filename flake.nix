@@ -11,9 +11,17 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, agenix, devenv, ... }:
   let
     mkDarwinSystem = { profile, system ? "aarch64-darwin" }:
       nix-darwin.lib.darwinSystem {
@@ -22,11 +30,13 @@
           ./darwin/common.nix
           ./darwin/${profile}.nix
           home-manager.darwinModules.home-manager
+          agenix.darwinModules.default
           {
             nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.pgardner = import ./home/profiles/${profile}.nix;
+            home-manager.extraSpecialArgs = { inherit agenix devenv; };
           }
         ];
       };

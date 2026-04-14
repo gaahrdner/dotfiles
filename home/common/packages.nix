@@ -1,5 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, agenix, devenv, ... }: {
   home.packages = with pkgs; [
+    # core tools
     mise
     _1password-cli
     ripgrep
@@ -10,5 +11,11 @@
     jq
     wget
     curl
+
+    # new hotness
+    yazi
+    granted
+    devenv.packages.${pkgs.system}.devenv
+    agenix.packages.${pkgs.system}.default
   ];
 }

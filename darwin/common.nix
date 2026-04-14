@@ -4,6 +4,8 @@
 
   nix.enable = false;
 
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   users.users.pgardner = {
     name = "pgardner";
     home = "/Users/pgardner";

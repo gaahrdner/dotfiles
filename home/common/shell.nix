@@ -6,10 +6,34 @@
     enableCompletion = true;
 
     shellAliases = {
-      ls  = "eza";
-      ll  = "eza -la";
-      cat = "bat";
-      cd  = "z";
+      # navigation
+      ls   = "eza";
+      ll   = "eza -la";
+      cat  = "bat";
+      cd   = "z";
+
+      # git
+      g    = "git";
+      ga   = "git add";
+      gaa  = "git add --all";
+      gc   = "git commit";
+      gcm  = "git commit -m";
+      gcam = "git commit -am";
+      gcl  = "git clone";
+      gco  = "git checkout";
+      gcb  = "git checkout -b";
+      gd   = "git diff";
+      gds  = "git diff --staged";
+      gl   = "git pull";
+      gp   = "git push";
+      gpf  = "git push --force-with-lease";
+      gst  = "git status";
+      glog = "git log --oneline --graph --decorate";
+      grb  = "git rebase";
+      gra  = "git rebase --abort";
+      grc  = "git rebase --continue";
+      gsh  = "git stash";
+      gstp = "git stash pop";
     };
 
     initContent = ''

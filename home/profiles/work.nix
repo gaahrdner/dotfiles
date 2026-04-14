@@ -8,6 +8,7 @@
   programs.git.settings = {
     user.name = "Phil Gardner";
     user.email = "phil@work.com";
+    user.signingKey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFUT8VaovrPh4ssAV3SQqRhqKfrTEeBcS2+c2rgzPRu7";
   };
 
   home.packages = with pkgs; [

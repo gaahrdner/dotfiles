@@ -1,4 +1,4 @@
-{ pkgs, agenix, devenv, ... }: {
+{ pkgs, agenix, ... }: {
   home.packages = with pkgs; [
     # core tools
     mise
@@ -15,7 +15,7 @@
     # new hotness
     yazi
     granted
-    devenv.packages.${pkgs.system}.devenv
+    devenv
     agenix.packages.${pkgs.system}.default
   ];
 }

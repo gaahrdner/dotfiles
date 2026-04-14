@@ -45,12 +45,10 @@
       eval "$(/opt/homebrew/bin/brew shellenv)"
       eval "$(mise activate zsh)"
 
-      # granted assume alias (required for shell env export to work)
+      # granted - tell it the alias is already configured so it doesn't
+      # try to write to .zshenv (which is Nix-managed and read-only)
+      export GRANTED_ALIAS_CONFIGURED=true
       alias assume="source ${pkgs.granted}/bin/assume"
-
-      # granted zsh completions
-      autoload -U compinit && compinit
-      source <(granted completion --shell zsh)
     '';
   };
 

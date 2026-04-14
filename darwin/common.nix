@@ -15,6 +15,7 @@
       "1password"
       "ghostty"
       "raycast"
+      "google-chrome"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;

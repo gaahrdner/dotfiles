@@ -50,7 +50,7 @@
 
       # granted zsh completions
       autoload -U compinit && compinit
-      source <(granted completion zsh)
+      source <(granted completion --shell zsh)
     '';
   };
 

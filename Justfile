@@ -2,46 +2,54 @@
 default:
     @just --list
 
-# Update flake inputs
+# Apply work configuration (swordfish)
+rebuild:
+    sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#swordfish
+
+# Apply personal configuration (maxbeep)
+rebuild-personal:
+    sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#maxbeep
+
+# Update all flake inputs
 update:
     nix flake update
 
-# Check flake
+# Update a specific flake input
+update-input input:
+    nix flake update {{input}}
+
+# Update inputs and rebuild
+update-and-rebuild: update rebuild
+
+# Check flake for errors
 check:
     nix flake check
 
-# Build the home-manager configuration
-build:
-    home-manager build --flake .#gaahrdner@maxbeep
+# Show what changed between current and new config
+diff:
+    nix store diff-closures /run/current-system $(nix build .#darwinConfigurations.swordfish.system --no-link --print-out-paths)
 
-# Apply the home-manager configuration
-apply:
-    home-manager switch --flake .#gaahrdner@maxbeep
-
-# Clean up old generations
-clean:
-    home-manager expire-generations "-30 days"
-
-# Garbage collect
+# Garbage collect old generations
 gc:
+    sudo nix-collect-garbage -d
     nix-collect-garbage -d
 
-# Show system information
-system-info:
+# Remove generations older than 30 days
+gc-old:
+    sudo nix-collect-garbage --delete-older-than 30d
+
+# Show current flake inputs
+inputs:
+    nix flake metadata
+
+# Show system info
+info:
     nix-shell -p nix-info --run "nix-info -m"
 
-# Enter a development shell
-dev-shell:
+# Enter a dev shell in current directory
+dev:
     nix develop
 
-# Update and apply in one command
-update-and-apply: update apply
-
-# List all generations
-list-generations:
-    home-manager generations
-
-# Show the diff between the current generation and the new configuration
-show-diff:
-    home-manager build --flake .#gaahrdner@maxbeep
-    nix store diff-closures /nix/var/nix/profiles/per-user/gaahrdner/home-manager $(home-manager build --flake .#gaahrdner@maxbeep | tail -n1)
+# Format all nix files
+fmt:
+    nix fmt

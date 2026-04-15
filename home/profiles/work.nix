@@ -7,12 +7,12 @@
 
   programs.git.settings = {
     user.name = "Phil Gardner";
-    user.email = "phil@work.com";
+    user.email = "pgardner@together.ai";
     user.signingKey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFUT8VaovrPh4ssAV3SQqRhqKfrTEeBcS2+c2rgzPRu7";
   };
 
   home.file.".ssh/allowed_signers".text = ''
-    phil@work.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFUT8VaovrPh4ssAV3SQqRhqKfrTEeBcS2+c2rgzPRu7
+    pgardner@together.ai ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFUT8VaovrPh4ssAV3SQqRhqKfrTEeBcS2+c2rgzPRu7
   '';
 
   programs.zsh.initContent = ''

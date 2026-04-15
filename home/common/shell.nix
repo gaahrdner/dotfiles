@@ -40,8 +40,8 @@
       gstp = "git stash pop";
 
       # nix
-      rebuild   = "sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake ~/Code/dotfiles#swordfish";
-      rebuild-p = "sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake ~/Code/dotfiles#maxbeep";
+      rebuild   = "sudo darwin-rebuild switch --flake ~/Code/dotfiles#swordfish";
+      rebuild-p = "sudo darwin-rebuild switch --flake ~/Code/dotfiles#maxbeep";
       update    = "nix flake update ~/Code/dotfiles";
     };
 

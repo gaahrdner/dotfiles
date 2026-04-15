@@ -4,11 +4,11 @@ default:
 
 # Apply work configuration (swordfish)
 rebuild:
-    sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#swordfish
+    sudo darwin-rebuild switch --flake .#swordfish
 
 # Apply personal configuration (maxbeep)
 rebuild-personal:
-    sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#maxbeep
+    sudo darwin-rebuild switch --flake .#maxbeep
 
 # Update all flake inputs
 update:

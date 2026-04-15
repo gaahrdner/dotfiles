@@ -25,7 +25,6 @@
   home.packages = with pkgs; [
     yazi
     granted
-    devenv
     agenix.packages.${pkgs.system}.default
     terraform
     terragrunt

@@ -44,11 +44,6 @@
     initContent = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
       eval "$(mise activate zsh)"
-
-      # granted - tell it the alias is already configured so it doesn't
-      # try to write to .zshenv (which is Nix-managed and read-only)
-      export GRANTED_ALIAS_CONFIGURED=true
-      alias assume="source ${pkgs.granted}/bin/assume"
     '';
   };
 

@@ -1,4 +1,4 @@
-{ pkgs, agenix, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # core tools
     mise
@@ -12,11 +12,5 @@
     wget
     curl
     tree
-
-    # new hotness
-    yazi
-    granted
-    devenv
-    agenix.packages.${pkgs.system}.default
   ];
 }

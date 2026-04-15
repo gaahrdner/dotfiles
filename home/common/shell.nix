@@ -7,10 +7,14 @@
 
     shellAliases = {
       # navigation
-      ls   = "eza";
-      ll   = "eza -la";
-      cat  = "bat";
-      cd   = "z";
+      ls      = "eza";
+      ll      = "eza -la";
+      cat     = "bat";
+      cd      = "z";
+      ".."    = "cd ..";
+      "..."   = "cd ../..";
+      "...."  = "cd ../../..";
+      "....." = "cd ../../../..";
 
       # git
       g    = "git";

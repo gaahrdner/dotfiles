@@ -11,6 +11,10 @@
     user.signingKey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFUT8VaovrPh4ssAV3SQqRhqKfrTEeBcS2+c2rgzPRu7";
   };
 
+  home.file.".ssh/allowed_signers".text = ''
+    phil@work.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFUT8VaovrPh4ssAV3SQqRhqKfrTEeBcS2+c2rgzPRu7
+  '';
+
   home.packages = with pkgs; [
     terraform
     terragrunt

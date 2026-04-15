@@ -46,10 +46,6 @@ inputs:
 info:
     nix-shell -p nix-info --run "nix-info -m"
 
-# Enter a dev shell in current directory
-dev:
-    nix develop
-
 # Format all nix files
 fmt:
     nix fmt

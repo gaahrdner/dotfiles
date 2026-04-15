@@ -5,5 +5,7 @@
     "claude"
     "claude-code@latest"
     "codex"
+    "linear-linear"
+    "notion"
   ];
 }

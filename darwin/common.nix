@@ -18,6 +18,7 @@
       "ghostty"
       "raycast"
       "google-chrome"
+      "google-gemini"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;

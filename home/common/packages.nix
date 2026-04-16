@@ -12,5 +12,6 @@
     wget
     curl
     tree
+    gh
   ];
 }

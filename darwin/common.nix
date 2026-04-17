@@ -19,6 +19,7 @@
       "raycast"
       "google-chrome"
       "google-gemini"
+      "codex-app"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;

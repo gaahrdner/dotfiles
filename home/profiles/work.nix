@@ -22,6 +22,15 @@
     alias assume="source ${pkgs.granted}/bin/assume"
   '';
 
+  xdg.configFile."mise/config.toml".text = ''
+    [tools]
+    node = "lts"
+  '';
+
+  home.file.".default-npm-packages".text = ''
+    @mariozechner/pi-coding-agent
+  '';
+
   home.packages = with pkgs; [
     yazi
     granted

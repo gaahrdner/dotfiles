@@ -4,7 +4,6 @@
   homebrew.taps = [ "schpet/tap" ];
   homebrew.brews = [
     "schpet/tap/linear"
-    "ollama"
   ];
   homebrew.casks = [
     "claude"

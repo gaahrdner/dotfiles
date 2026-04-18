@@ -14,6 +14,7 @@
   homebrew = {
     enable = true;
     brews = [
+      "gastown"
       "llama.cpp"
     ];
     casks = [

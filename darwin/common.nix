@@ -13,6 +13,9 @@
 
   homebrew = {
     enable = true;
+    brews = [
+      "llama.cpp"
+    ];
     casks = [
       "1password"
       "ghostty"
@@ -21,6 +24,7 @@
       "google-gemini"
       "codex"
       "codex-app"
+      "lm-studio"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
